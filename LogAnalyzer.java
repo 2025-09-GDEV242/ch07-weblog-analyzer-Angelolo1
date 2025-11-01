@@ -58,6 +58,13 @@ public class LogAnalyzer
         }
         return total;
     }
+    
+    /**
+     * Exercise 7.15
+     * Return the busiest hour (hour with the highest accesses
+     */
+    
+    
 
     /**
      * Print the hourly counts.
