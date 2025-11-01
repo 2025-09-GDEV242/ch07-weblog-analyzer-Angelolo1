@@ -63,8 +63,16 @@ public class LogAnalyzer
      * Exercise 7.15
      * Return the busiest hour (hour with the highest accesses
      */
-    
-    
+    public int busiestHour()
+    {
+        int busiest = 0;
+        for (int hour = 1; hour < hourCounts.length; hour++) {
+            if (hourCounts[hour] > hourCounts[busiest]) {
+                busiest = hour;
+            }
+        }
+        return busiest;
+    }
 
     /**
      * Print the hourly counts.
