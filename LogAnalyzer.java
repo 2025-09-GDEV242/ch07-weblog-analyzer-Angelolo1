@@ -61,7 +61,7 @@ public class LogAnalyzer
     
     /**
      * Exercise 7.15
-     * Return the busiest hour (hour with the highest accesses
+     * Return the busiest hour (hour with the highest number of accesses
      */
     public int busiestHour()
     {
@@ -72,6 +72,27 @@ public class LogAnalyzer
             }
         }
         return busiest;
+    }
+    
+    /**
+     * Exercise 7.16
+     * Return the quietest hour (hour with the lowest non-zero number of accesses
+     */
+    public int quietestHour()
+    {
+        int quietest = -1;
+        for (int i = 0; i < hourCounts.length; i++) {
+            if (hourCounts[i] > 0) {
+                quietest = i;
+                break;
+            }
+        }
+        
+        if (quietest == -1) {                      //if all counts are zero, return -1
+            return -1;
+        }
+        
+        for
     }
 
     /**
