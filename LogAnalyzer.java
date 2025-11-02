@@ -66,7 +66,7 @@ public class LogAnalyzer
     public int numberOfAccesses()
     {
         int total = 0;
-        for (int count : hourCounts) {          //adds each value in hourCounts to the total
+        for (int count : hourCounts) {     //adds each value in hourCounts to the total
             total += count;
         }
         return total;
@@ -89,7 +89,7 @@ public class LogAnalyzer
     
     /**
      * Exercise 7.16
-     * Return the quietest hour (hour with the lowest non-zero number of accesses
+     * Return the quietest hour (hour with the lowest non-zero number of accesses)
      */
     public int quietestHour()
     {
@@ -101,7 +101,7 @@ public class LogAnalyzer
             }
         }
         
-        if (quietest == -1) {                      //if all counts are zero, return -1
+        if (quietest == -1) {      //if all counts are zero, return -1
             return -1;
         }
         
@@ -148,12 +148,35 @@ public class LogAnalyzer
         return busiest + 1;     //+1 since array index 0 = Day 1
     }
     
-    
+    /**
+     * Exercise 7.19
+     * Return the quietest day (day with the lowest non-zero number of accesses)
+     */
+    public int quietestDay()
+    {
+        int quietest = -1;
+        for (int i = 0; i < dayCounts.length; i++) {
+            if (dayCounts[i] > 0) {
+                quietest = i;
+                break;
+            }
+        }
+        
+        if (quietest == -1) {
+            return -1;  //no data
+        }
+        
+        for (int day = 0; day < dayCounts.length; day++) {
+            if (dayCounts[day] > 0 && dayCounts[day] < dayCounts[quietest]) {
+                quietest = day;
+            }
+        }
+        return quietest + 1;  //+1 since array index 0 = Day 1
+    }
 
     /**
      * Print the hourly counts.
      * These should have been set with a prior
-     * call to analyzeHourlyData.
      */
     public void printHourlyCounts()
     {
@@ -162,6 +185,10 @@ public class LogAnalyzer
             System.out.println(hour + ": " + hourCounts[hour]);
         }
     }
+    
+    /**
+     * Print the daily counts
+     */
     
     /**
      * Print the lines of data read by the LogfileReader
