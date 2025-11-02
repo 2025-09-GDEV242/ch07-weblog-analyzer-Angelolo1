@@ -99,6 +99,26 @@ public class LogAnalyzer
         }
         return quietest;
     }
+    
+    /**
+     * Exercise 7.18
+     * Return the first hour of the busiest two-hour period
+     */
+    public int busiestTwoHour()
+    {
+        int busiestStart = 0;
+        int maxTotal = hourCounts[0] + hourCounts[1];
+        
+        for (int hour = 1; hour < 24; hour++) {
+            int next = (hour + 1) % 24;            //wraps around from 23 to 0
+            int total = hourCounts[hour] + hourCounts[next];
+            if (total > maxTotal) {
+                maxTotal = total;
+                busiestStart = hour;
+            }
+        }
+        return busiestStart;
+    }
 
     /**
      * Print the hourly counts.
