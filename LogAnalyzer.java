@@ -92,7 +92,12 @@ public class LogAnalyzer
             return -1;
         }
         
-        for
+        for (int hour = 0; hour < hourCounts.length; hour++) {
+            if (hourCounts[hour] > 0 && hourCounts[hour] < hourCounts[quietest])
+            quietest = hour;
+
+        }
+        return quietest;
     }
 
     /**
