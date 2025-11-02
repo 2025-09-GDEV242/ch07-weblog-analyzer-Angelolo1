@@ -189,6 +189,13 @@ public class LogAnalyzer
     /**
      * Print the daily counts
      */
+    public void printDailyCounts()
+    {
+        System.out.println("Day: Count");
+        for (int day = 0; day < dayCounts.length; day++) {
+            System.out.println((day+1) + ": " + dayCounts[day]);
+        }
+    }
     
     /**
      * Print the lines of data read by the LogfileReader
