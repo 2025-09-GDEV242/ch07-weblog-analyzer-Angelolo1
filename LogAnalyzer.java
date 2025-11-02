@@ -137,7 +137,18 @@ public class LogAnalyzer
      * Exercise 7.19
      * Return the busiest day (day with the most accesses)
      */
-    public int
+    public int busiestDay()
+    {
+        int busiest = 0;
+        for (int day = 1; day < dayCounts.length; day++) {
+            if (dayCounts[day] > dayCounts[busiest]) {
+                busiest = day;
+            }
+        }
+        return busiest + 1;     //+1 since array index 0 = Day 1
+    }
+    
+    
 
     /**
      * Print the hourly counts.
